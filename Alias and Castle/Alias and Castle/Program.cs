@@ -38,7 +38,10 @@ namespace Lab_2
             string sword = "ржавый меч";
             string stick = "палка";
 
-            
+            Console.WriteLine("Внимание!");
+            Console.WriteLine("Это не финальная версия");
+            Console.WriteLine("В ней могут присуствовать ошибки и опечатки");
+            Console.ReadKey();
 
             int chooceRace = 0;
 
@@ -899,7 +902,7 @@ namespace Lab_2
                     Console.ReadKey();
                 }
 
-                Console.WriteLine(nameCharacter + " дошёл до конца тунеля видит табличку");
+                Console.WriteLine(nameCharacter + " дошёл(шла) до конца тунеля видит табличку");
 
                 if(fragmentsOfTheKey > 9)
                 {
@@ -915,6 +918,7 @@ namespace Lab_2
                 string enemy = "Гоблин";
                 int healsEnemy = 100;
                 int damageEneme = 2;
+                int CreedDamegeEnemy = damageEneme * 2;
 
                 Console.WriteLine("возвращаясь обратно " + nameCharacter + $" натыкается на {enemy}");
                 Console.ReadKey();
@@ -932,8 +936,9 @@ namespace Lab_2
                 {
                     Console.Clear();
                     changeMoveInFight = 0;
+                    int randomCreedDamege = random.Next(0, 9);
 
-                    while(changeMoveInFight == 0)
+                    while (changeMoveInFight == 0)
                     {
                         Console.Clear();
 
@@ -1047,12 +1052,34 @@ namespace Lab_2
                         }
                     }
                         if (healsEnemy > 0 && changeInFight != 5 && heals > 0)
+                    {
+                        switch (randomCreedDamege)
                         {
-                            Console.Clear();
-                            Console.WriteLine($"\n{enemy} бьёт вас");
-                            heals -= damageEneme;
-                            Console.WriteLine($"\n{enemy} наносит вам {damageEneme} урона");
-                            Console.ReadKey();
+                            case 0:
+                            case 1:
+                            case 2:
+                            case 3:
+                            case 4:
+                            case 5:
+                            case 6:
+                            case 7:
+                                Console.Clear();
+                                Console.WriteLine($"\n{enemy} бьёт вас");
+                                heals -= damageEneme;
+                                Console.WriteLine($"\n{enemy} наносит вам {damageEneme} урона");
+                                Console.ReadKey();
+                                break;
+                            case 8:
+                            case 9:
+                                Console.Clear();
+                                Console.WriteLine($"\n{enemy} бьёт вас");
+                                heals -= CreedDamegeEnemy;
+                                Console.WriteLine($"\n{enemy} наносит вам {damageEneme} урона");
+                                Console.ReadKey();
+                                break;
+                        }
+
+                        
                         }
 
                     
