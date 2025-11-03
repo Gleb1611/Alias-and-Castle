@@ -1,0 +1,15 @@
+E:\Программирование\Alias and Castle\Alias and Castle\bin\Debug\Alias and Castle.exe.config
+E:\Программирование\Alias and Castle\Alias and Castle\bin\Debug\Alias and Castle.exe
+E:\Программирование\Alias and Castle\Alias and Castle\bin\Debug\Alias and Castle.pdb
+E:\Программирование\Alias and Castle\Alias and Castle\obj\Debug\Alias and Castle.csproj.AssemblyReference.cache
+E:\Программирование\Alias and Castle\Alias and Castle\obj\Debug\Alias and Castle.csproj.CoreCompileInputs.cache
+E:\Программирование\Alias and Castle\Alias and Castle\obj\Debug\Alias and Castle.exe
+E:\Программирование\Alias and Castle\Alias and Castle\obj\Debug\Alias and Castle.pdb
+G:\Программирование\Alias and Castle\Alias and Castle\bin\Debug\Alias and Castle.exe.config
+G:\Программирование\Alias and Castle\Alias and Castle\bin\Debug\Alias and Castle.exe
+G:\Программирование\Alias and Castle\Alias and Castle\bin\Debug\Alias and Castle.pdb
+G:\Программирование\Alias and Castle\Alias and Castle\obj\Debug\Alias and Castle.csproj.AssemblyReference.cache
+G:\Программирование\Alias and Castle\Alias and Castle\obj\Debug\Alias and Castle.csproj.CoreCompileInputs.cache
+G:\Программирование\Alias and Castle\Alias and Castle\obj\Debug\Alias and Castle.exe
+G:\Программирование\Alias and Castle\Alias and Castle\obj\Debug\Alias and Castle.pdb
+E:\Программирование\Alias and Castle\Alias and Castle\obj\Debug\Alias and Castle.csproj.SuggestedBindingRedirects.cache
