@@ -1,9 +1,9 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
-VisualStudioVersion = 17.0.31903.59
+VisualStudioVersion = 17.14.36623.8 d17.14
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Alias and Castle", "Alias and Castle\Alias and Castle.csproj", "{053AFFAF-6A4E-499D-A813-B06B32FFA32E}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Alias and Castle", "Alias and Castle\Alias and Castle.csproj", "{607308C0-3EDC-4AF8-A9BA-ADB3706EACB4}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -11,15 +11,15 @@ Global
 		Release|Any CPU = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
-		{053AFFAF-6A4E-499D-A813-B06B32FFA32E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{053AFFAF-6A4E-499D-A813-B06B32FFA32E}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{053AFFAF-6A4E-499D-A813-B06B32FFA32E}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{053AFFAF-6A4E-499D-A813-B06B32FFA32E}.Release|Any CPU.Build.0 = Release|Any CPU
+		{607308C0-3EDC-4AF8-A9BA-ADB3706EACB4}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{607308C0-3EDC-4AF8-A9BA-ADB3706EACB4}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{607308C0-3EDC-4AF8-A9BA-ADB3706EACB4}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{607308C0-3EDC-4AF8-A9BA-ADB3706EACB4}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
-		SolutionGuid = {8A34A2E8-C112-497E-A0EB-5503C33BF44B}
+		SolutionGuid = {2CEA462A-6544-45A2-8174-CA6AC17760ED}
 	EndGlobalSection
 EndGlobal
