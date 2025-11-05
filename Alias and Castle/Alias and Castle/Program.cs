@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Lab_2
+namespace Alias_and_Castle_on_universitet_compucter
 {
     internal class Program
     {
@@ -38,6 +38,125 @@ namespace Lab_2
             string sword = "ржавый меч";
             string stick = "палка";
 
+            Console.WriteLine("Обучение\n" +
+               "Для продолжения нажмите Enter ");
+
+            Console.ReadKey();
+
+            Console.WriteLine("Для выбора действия введите число, затем нажмите Enter ");
+            Console.ReadKey();
+            string traningNumber = "";
+            int checkingTheEnteredNumberInTraining = 0;
+
+            while (checkingTheEnteredNumberInTraining == 0)
+            {
+                Console.Clear();
+
+                Console.WriteLine("Пример:");
+                Console.WriteLine("Выбирите действие:");
+
+                checkingTheEnteredNumberInTraining = 0;
+                for (int i = 1; i <= 3; i++)
+                {
+                    Console.WriteLine($"{i})действие");
+                }
+                Console.WriteLine("\nВы должны ввести любое число из списка");
+                traningNumber = Console.ReadLine();
+
+                switch (traningNumber)
+                {
+                    case "1":
+                    case "2":
+                    case "3":
+                        checkingTheEnteredNumberInTraining = 1;
+                        break;
+                    default:
+                        Console.Clear();
+
+                        Console.WriteLine("\nВы ввели недоступное число");
+                        Console.ReadKey();
+
+                        Console.Clear();
+                        break;
+                }
+            }
+            Console.Clear();
+
+            Console.WriteLine("Если вы видите (да / нет), то вам следует ввести да или нет");
+            Console.ReadKey();
+
+            checkingTheEnteredNumberInTraining = 0;
+
+            for (int i = 1; i < 3;)
+            {
+                while (checkingTheEnteredNumberInTraining == 0)
+                {
+                    switch (i)
+                    {
+                        case 1:
+                            Console.Clear();
+
+                            Console.WriteLine("Пример:\n");
+
+                            Console.WriteLine("Следует ли вовремя делать домашнее задание? (да / нет):");
+                            traningNumber = Console.ReadLine();
+                            if (traningNumber.ToLower() == "да" || traningNumber.ToLower() == "д" || traningNumber.ToLower() == "а")
+                            {
+                                Console.WriteLine("Правильно! Давай перейдём к следующему заданию");
+                                i++;
+                            }
+                            else
+                            {
+                                Console.Clear();
+                                Console.WriteLine("Не верно, попробуй ещё раз");
+                                Console.ReadKey();
+                            }
+                            break;
+                        case 2:
+                            Console.Clear();
+                            Console.WriteLine("Вопрос 2 (да / нет):");
+                            traningNumber = Console.ReadLine();
+                            if (traningNumber.ToLower() == "да" || traningNumber.ToLower() == "д" || traningNumber.ToLower() == "а")
+                            {
+                                Console.WriteLine("Правильно! Давай перейдём к следующему заданию");
+                                i++;
+                            }
+                            else
+                            {
+                                Console.Clear();
+                                Console.WriteLine("Не верно, попробуй ещё раз");
+                                Console.ReadKey();
+                            }
+                            break;
+                        case 3:
+                            Console.Clear();
+                            Console.WriteLine("Вопрос 3 (да / нет):");
+                            traningNumber = Console.ReadLine();
+                            if (traningNumber.ToLower() == "да" || traningNumber.ToLower() == "д" || traningNumber.ToLower() == "а")
+                            {
+                                Console.WriteLine("Правильно!");
+                                i++;
+                                checkingTheEnteredNumberInTraining = 1;
+                            }
+                            else
+                            {
+                                Console.Clear();
+                                Console.WriteLine("Не верно, попробуй ещё раз");
+                                Console.ReadKey();
+                            }
+                            break;
+                    }
+                }
+
+            }
+
+            Console.Clear();
+
+            Console.WriteLine("Поздравляю, вы прошли всё обучение(которое есть на данный момент)");
+            Console.ReadKey();
+
+            Console.Clear();
+
             Console.WriteLine("Внимание!");
             Console.WriteLine("Это не финальная версия");
             Console.WriteLine("В ней могут присуствовать ошибки и опечатки");
@@ -45,13 +164,13 @@ namespace Lab_2
 
             int chooceRace = 0;
 
-            while(chooceRace == 0)
+            while (chooceRace == 0)
             {
                 Console.Clear();
 
                 int returnToChooceReace = 0;
-                
-                while(returnToChooceReace == 0)
+
+                while (returnToChooceReace == 0)
                 {
                     Console.Clear();
 
@@ -792,7 +911,7 @@ namespace Lab_2
                 {
                     Console.Clear();
 
-                    for(fragmentsOfTheKey = 0; fragmentsOfTheKey < 10;)
+                    for (fragmentsOfTheKey = 0; fragmentsOfTheKey < 10;)
                     {
 
                         int randomChange = random.Next(0, 5);
@@ -874,9 +993,9 @@ namespace Lab_2
                                 break;
                         }
 
-                        
 
-                        if(fragmentsOfTheKey == 3 && fragmrntsNumber == 0)
+
+                        if (fragmentsOfTheKey == 3 && fragmrntsNumber == 0)
                         {
                             Console.WriteLine(nameCharacter + " заметил(а), что на обломках есть узоры");
                             fragmrntsNumber++;
@@ -898,13 +1017,13 @@ namespace Lab_2
                             Console.Clear();
                         }
                     }
-                    Console.WriteLine( "собрал все обломки");
+                    Console.WriteLine(nameCharacter + "собрал(а) все обломки");
                     Console.ReadKey();
                 }
 
                 Console.WriteLine(nameCharacter + " дошёл(шла) до конца тунеля видит табличку");
 
-                if(fragmentsOfTheKey > 9)
+                if (fragmentsOfTheKey > 9)
                 {
                     Console.WriteLine("У тебя уже есть ключ, который активирует последний монумент");
                     Console.ReadKey();
@@ -931,8 +1050,8 @@ namespace Lab_2
                 Console.WriteLine("Бой начался!");
                 Console.ReadKey();
 
-                
-                while(healsEnemy > 0 && changeInFight !=4 && heals > 0)
+
+                while (healsEnemy > 0 && changeInFight != 4 && heals > 0)
                 {
                     Console.Clear();
                     changeMoveInFight = 0;
@@ -949,9 +1068,9 @@ namespace Lab_2
                         Console.WriteLine("4)открыть инвентарь");
                         Console.WriteLine("Выбор действия:");
 
-                        if(int.TryParse(Console.ReadLine(), out changeInFight))
+                        if (int.TryParse(Console.ReadLine(), out changeInFight))
                         {
-                            switch(changeInFight)
+                            switch (changeInFight)
                             {
                                 case 1:
                                     Console.Clear();
@@ -984,7 +1103,7 @@ namespace Lab_2
 
                                     bool inventory = true;
 
-                                    while(inventory)
+                                    while (inventory)
                                     {
                                         Console.Clear();
 
@@ -1025,7 +1144,7 @@ namespace Lab_2
                                                 break;
                                         }
                                     }
-                                    
+
                                     changeMoveInFight = 0;
                                     break;
 
@@ -1051,7 +1170,7 @@ namespace Lab_2
                             Console.ReadKey();
                         }
                     }
-                        if (healsEnemy > 0 && changeInFight != 5 && heals > 0)
+                    if (healsEnemy > 0 && changeInFight != 5 && heals > 0)
                     {
                         switch (randomCreedDamege)
                         {
@@ -1066,7 +1185,7 @@ namespace Lab_2
                                 Console.Clear();
                                 Console.WriteLine($"\n{enemy} бьёт вас");
                                 heals -= damageEneme;
-                                Console.WriteLine($"\n{enemy} наносит вам {damageEneme} урона");
+                                Console.WriteLine($"\n{enemy} наносит вам урона");
                                 Console.ReadKey();
                                 break;
                             case 8:
@@ -1079,10 +1198,10 @@ namespace Lab_2
                                 break;
                         }
 
-                        
-                        }
 
-                    
+                    }
+
+
 
                     Console.Clear();
 
@@ -1097,11 +1216,11 @@ namespace Lab_2
                     Console.ReadKey();
 
                 }
-                
-                if(healsEnemy <= 0)
+
+                if (healsEnemy <= 0)
                 {
                     Console.Clear();
-                    Console.WriteLine(nameCharacter + " победил");
+                    Console.WriteLine(nameCharacter + " победил(а)");
                     Console.ReadKey();
                 }
                 else if (heals <= 0)
@@ -1121,6 +1240,119 @@ namespace Lab_2
 
                 Console.WriteLine("Бой окончен");
                 Console.ReadKey();
+
+                if (fragmentsOfTheKey < 10)
+                {
+                    Console.Clear();
+
+                    for (fragmentsOfTheKey = 0; fragmentsOfTheKey < 10;)
+                    {
+
+                        int randomChange = random.Next(0, 5);
+                        int randomItems = random.Next(0, 10);
+
+                        Console.Clear();
+
+                        Console.WriteLine(nameCharacter + " продолжает путь");
+
+                        switch (randomChange)
+                        {
+                            case 0:
+                            case 1:
+                                Console.WriteLine(nameCharacter + " ничего не нашёл");
+                                break;
+                            case 2:
+                            case 3:
+                                Console.WriteLine(nameCharacter + " нашёл обломок");
+                                Console.WriteLine($"+1 обломок");
+                                fragmentsOfTheKey++;
+                                Console.WriteLine($"всего {fragmentsOfTheKey} обломок");
+                                Console.ReadKey();
+                                Console.Clear();
+                                break;
+                            case 4:
+                            case 5:
+                                Console.WriteLine(nameCharacter + " нашел рюкзак");
+                                Console.WriteLine("открыть рюкзак? (да / нет)");
+                                decision = Convert.ToString(Console.ReadLine());
+
+                                if (decision.ToLower() == "да" || decision.ToLower() == "д" || decision.ToLower() == "а")
+                                {
+                                    switch (randomItems)
+                                    {
+                                        case 0:
+                                        case 1:
+                                        case 2:
+                                            Console.WriteLine("рюкзак пустой");
+                                            Console.ReadKey();
+                                            Console.Clear();
+                                            break;
+
+                                        case 3:
+                                        case 4:
+                                        case 5:
+                                        case 6:
+                                        case 7:
+                                        case 8:
+                                            Console.WriteLine(nameCharacter + " нашёл слабую аптечку(+5 здоровья) ");
+                                            Console.WriteLine("взять? (да / нет)");
+                                            decision = Console.ReadLine();
+
+                                            if (decision.ToLower() == "да" || decision.ToLower() == "д" || decision.ToLower() == "а")
+                                            {
+                                                Console.WriteLine(nameCharacter + " положил малое зелье здоровья в рюкзак");
+                                                Console.WriteLine("+ 1 малое зелье здоровья");
+                                                littleHealsInInventory += 1;
+                                            }
+                                            Console.ReadKey();
+                                            Console.Clear();
+                                            break;
+
+                                        case 9:
+                                            Console.WriteLine(nameCharacter + " нашёл что-то особенное");
+                                            Console.ReadKey();
+                                            Console.Clear();
+                                            break;
+                                    }
+
+                                }
+                                else
+                                {
+                                    Console.WriteLine(nameCharacter + " оставил рюкзак");
+                                    Console.ReadKey();
+                                    Console.Clear();
+                                }
+
+                                break;
+                        }
+
+
+
+                        if (fragmentsOfTheKey == 3 && fragmrntsNumber == 0)
+                        {
+                            Console.WriteLine(nameCharacter + " заметил(а), что на обломках есть узоры");
+                            fragmrntsNumber++;
+                            Console.ReadKey();
+                            Console.Clear();
+                        }
+                        if (fragmentsOfTheKey == 7 && fragmrntsNumber == 1)
+                        {
+                            Console.WriteLine(nameCharacter + " заметил(а), что если сложить обломки, то они образуют единый рисунок");
+                            fragmrntsNumber++;
+                            Console.ReadKey();
+                            Console.Clear();
+                        }
+                        if (fragmentsOfTheKey == 9 && fragmrntsNumber == 2)
+                        {
+                            Console.WriteLine(nameCharacter + " заметил(а), что обломки образовали целостный рисунок \n");
+                            fragmrntsNumber++;
+                            Console.ReadKey();
+                            Console.Clear();
+                        }
+                    }
+                    Console.WriteLine(nameCharacter + "собрал(а) все обломки");
+                    Console.ReadKey();
+                }
 
                 int NumberOfArtifacts = 0;
 
@@ -1307,7 +1539,7 @@ namespace Lab_2
 
             Console.WriteLine("Конец игры!");
             Console.ReadKey();
-
         }
     }
 }
+
