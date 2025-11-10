@@ -14,11 +14,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "G:\\Alias and Castle\\Alias and Castle\\Alias and Castle.csproj",
+      "projectUniqueName": "G:\\Программирование\\Alias and Castle\\Alias and Castle\\Alias and Castle.csproj",
       "projectName": "Alias and Castle",
-      "projectPath": "G:\\Alias and Castle\\Alias and Castle\\Alias and Castle.csproj",
+      "projectPath": "G:\\Программирование\\Alias and Castle\\Alias and Castle\\Alias and Castle.csproj",
       "packagesPath": "C:\\Users\\Tery\\.nuget\\packages\\",
-      "outputPath": "G:\\Alias and Castle\\Alias and Castle\\obj\\",
+      "outputPath": "G:\\Программирование\\Alias and Castle\\Alias and Castle\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
