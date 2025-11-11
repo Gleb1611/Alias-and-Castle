@@ -12,3 +12,17 @@ G:\Программирование\Alias and Castle\Alias and Castle\obj\Debug\
 G:\Программирование\Alias and Castle\Alias and Castle\obj\Debug\net8.0\Alias and Castle.pdb
 G:\Программирование\Alias and Castle\Alias and Castle\obj\Debug\net8.0\Alias and Castle.genruntimeconfig.cache
 G:\Программирование\Alias and Castle\Alias and Castle\obj\Debug\net8.0\ref\Alias and Castle.dll
+E:\Программирование\Alias and Castle\Alias and Castle\bin\Debug\net8.0\Alias and Castle.exe
+E:\Программирование\Alias and Castle\Alias and Castle\bin\Debug\net8.0\Alias and Castle.deps.json
+E:\Программирование\Alias and Castle\Alias and Castle\bin\Debug\net8.0\Alias and Castle.runtimeconfig.json
+E:\Программирование\Alias and Castle\Alias and Castle\bin\Debug\net8.0\Alias and Castle.dll
+E:\Программирование\Alias and Castle\Alias and Castle\bin\Debug\net8.0\Alias and Castle.pdb
+E:\Программирование\Alias and Castle\Alias and Castle\obj\Debug\net8.0\Alias and Castle.GeneratedMSBuildEditorConfig.editorconfig
+E:\Программирование\Alias and Castle\Alias and Castle\obj\Debug\net8.0\Alias and Castle.AssemblyInfoInputs.cache
+E:\Программирование\Alias and Castle\Alias and Castle\obj\Debug\net8.0\Alias and Castle.AssemblyInfo.cs
+E:\Программирование\Alias and Castle\Alias and Castle\obj\Debug\net8.0\Alias and Castle.csproj.CoreCompileInputs.cache
+E:\Программирование\Alias and Castle\Alias and Castle\obj\Debug\net8.0\Alias and Castle.dll
+E:\Программирование\Alias and Castle\Alias and Castle\obj\Debug\net8.0\refint\Alias and Castle.dll
+E:\Программирование\Alias and Castle\Alias and Castle\obj\Debug\net8.0\Alias and Castle.pdb
+E:\Программирование\Alias and Castle\Alias and Castle\obj\Debug\net8.0\Alias and Castle.genruntimeconfig.cache
+E:\Программирование\Alias and Castle\Alias and Castle\obj\Debug\net8.0\ref\Alias and Castle.dll
