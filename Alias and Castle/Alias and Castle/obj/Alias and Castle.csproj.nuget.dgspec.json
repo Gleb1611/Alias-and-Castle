@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "G:\\Программирование\\Alias and Castle\\Alias and Castle\\Alias and Castle.csproj": {}
+    "D:\\Программирование\\Alias and Castle\\Alias and Castle\\Alias and Castle.csproj": {}
   },
   "projects": {
-    "G:\\Программирование\\Alias and Castle\\Alias and Castle\\Alias and Castle.csproj": {
+    "D:\\Программирование\\Alias and Castle\\Alias and Castle\\Alias and Castle.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "G:\\Программирование\\Alias and Castle\\Alias and Castle\\Alias and Castle.csproj",
+        "projectUniqueName": "D:\\Программирование\\Alias and Castle\\Alias and Castle\\Alias and Castle.csproj",
         "projectName": "Alias and Castle",
-        "projectPath": "G:\\Программирование\\Alias and Castle\\Alias and Castle\\Alias and Castle.csproj",
+        "projectPath": "D:\\Программирование\\Alias and Castle\\Alias and Castle\\Alias and Castle.csproj",
         "packagesPath": "C:\\Users\\Tery\\.nuget\\packages\\",
-        "outputPath": "G:\\Программирование\\Alias and Castle\\Alias and Castle\\obj\\",
+        "outputPath": "D:\\Программирование\\Alias and Castle\\Alias and Castle\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
@@ -65,7 +65,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\9.0.306/PortableRuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\9.0.307/PortableRuntimeIdentifierGraph.json"
         }
       }
     }

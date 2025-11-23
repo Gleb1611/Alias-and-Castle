@@ -1,8 +1,10 @@
-﻿using Alias_and_Castle.Towers;
+﻿using Alias_and_Castle.Levels;
+using Alias_and_Castle.Levels.Towers;
 using System;
 using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
+using System.Security.Claims;
 using System.Text;
 using System.Threading.Tasks;
 using static System.Net.Mime.MediaTypeNames;
@@ -20,17 +22,23 @@ namespace Alias_and_Castle
             bool lockFire = false;
             bool rockLock = false;
             int timer = 0;
-            int heals = 100;
-            int maxHeals = 100;
+
+
+
             int mood = 70;
             bool luck = true;
             bool holeInBackpack = false;
 
-            int damageArm = 5;
+            // Дефолтное состояние персонажа
             string race = "человек";
+            int heals = 100;
+            int maxHeals = 100;
             string weapon = "рука";
+            int damageArm = 5;
             int damage = 5;
 
+
+            //Дефолтное состояние оружия
             string sword = "ржавый меч";
             string stick = "палка";
 
@@ -48,9 +56,11 @@ namespace Alias_and_Castle
             int bigeHealsPosion = 20;
             int NumberOfArtifacts = 0;
 
-            
 
-            //Totorial();
+            string decision = "";
+
+            Random random = new Random();
+            //TootorialBeforGame.Totorial();
 
             Console.Clear();
 
@@ -60,7 +70,18 @@ namespace Alias_and_Castle
             Console.WriteLine("В ней могут присуствовать ошибки и опечатки");
             Console.ReadKey();
 
-            //ClassForACharacter.ClassForCharacter(ref race, ref heals, ref damageArm, ref damage);
+
+            List<Class> classes = new List<Class>
+            {
+                new Class{ Index = 0, Name ="Человек", Heals = 100, Damage = 8},
+                new Class{ Index = 1, Name ="Эльф", Heals = 100, Damage = 7},
+                new Class{ Index = 2, Name ="Гоблин", Heals = 80, Damage = 5},
+                new Class{ Index = 3, Name ="Зверолюд", Heals = 110, Damage = 10},
+                new Class{ Index = 4, Name ="Вампир", Heals = 110, Damage = 10},
+            };
+
+
+            ClassForACharacter.ClassForCharacter(classes, ref race, ref heals, ref damageArm, ref damage, ref maxHeals, ref nameCharacter, ref weapon);
 
             Console.Clear();
 
@@ -85,7 +106,6 @@ namespace Alias_and_Castle
 
             if (enterTheCave.ToLower() == "да" || enterTheCave.ToLower() == "д" || enterTheCave.ToLower() == "а")
             {
-                string decision = "";
 
                 Console.WriteLine("В пещере темно \nЗажечь свечу? (да / нет)");
                 decision = Convert.ToString(Console.ReadLine());
@@ -118,7 +138,10 @@ namespace Alias_and_Castle
 
                 ChangeTowers.MainChange(towerTimerOne, towerTimerTwo, towerTimerThree, NumberOfArtifacts, decision, damage, weapon, heals, timer, items, stick, sword, luck, nameCharacter, mood, littleHealsInInventory, damageArm, littleHealsPosion, holeInBackpack, artifact, ref maxHeals);
 
+                if(NumberOfArtifacts == 1)
+                {
 
+                }
 
                 Console.Clear();
             }
@@ -135,305 +158,71 @@ namespace Alias_and_Castle
             Console.WriteLine("Конец игры!");
             Console.ReadKey();
         }
-
-        public static void Totorial()
+        public static void LakeWithCoins(string nameCharacter, string decision, Random random, int heals, List<MedKit> medKit, List<Weapon> weapon, List<LittleThings> littleThings)
         {
-            Console.WriteLine("Обучение\n" +
-               "Для продолжения нажмите Enter ");
-
-            Console.ReadKey();
-
-            Console.WriteLine("Для выбора действия введите число, затем нажмите Enter ");
-            Console.ReadKey();
-            string traningNumber = "";
-            int checkingTheEnteredNumberInTraining = 0;
-
-            while (checkingTheEnteredNumberInTraining == 0)
-            {
-                Console.Clear();
-
-                Console.WriteLine("Пример:");
-                Console.WriteLine("Выбирите действие:");
-
-                checkingTheEnteredNumberInTraining = 0;
-                for (int i = 1; i <= 3; i++)
-                {
-                    Console.WriteLine($"{i})действие");
-                }
-                Console.WriteLine("\nВы должны ввести любое число из списка");
-                traningNumber = Console.ReadLine();
-
-                switch (traningNumber)
-                {
-                    case "1":
-                    case "2":
-                    case "3":
-                        checkingTheEnteredNumberInTraining = 1;
-                        break;
-                    default:
-                        Console.Clear();
-
-                        Console.WriteLine("\nВы ввели недоступное число");
-                        Console.ReadKey();
-
-                        Console.Clear();
-                        break;
-                }
-            }
             Console.Clear();
 
-            Console.WriteLine("Если вы видите (да / нет), то вам следует ввести да или нет");
+
+            Console.WriteLine($"Возвращаясь к выходу {nameCharacter} насступает на камень и пол проваливается");
             Console.ReadKey();
+            Console.WriteLine($"{nameCharacter} успел схватиться за лиану");
+            Console.WriteLine($"{nameCharacter}: куда полсти? \n1)Вверх \n2)Вниз");
+            decision = Console.ReadLine();
 
-
-            for (int i = 1; i < 3;)
+            switch(decision)
             {
-                while (i <= 3)
-                {
-                    switch (i)
+                case "1":
+                    for(int i = 0; i < 4; i++)
                     {
-                        case 1:
-                            Console.Clear();
+                        Console.WriteLine($"{nameCharacter} ползёт вверх");
 
-                            Console.WriteLine("Пример:\n");
-
-                            Console.WriteLine("Следует ли вовремя делать домашнее задание? (да / нет):");
-                            traningNumber = Console.ReadLine();
-                            if (traningNumber.ToLower() == "да" || traningNumber.ToLower() == "д" || traningNumber.ToLower() == "а")
-                            {
-                                Console.WriteLine("Правильно! Давай перейдём к следующему заданию");
-                                i++;
-                            }
-                            else
-                            {
-                                Console.Clear();
-                                Console.WriteLine("Не верно, попробуй ещё раз");
-                                Console.ReadKey();
-                            }
-                            break;
-                        case 2:
-                            Console.Clear();
-                            Console.WriteLine("Вы добровольно играете в эту игру, (да / нет):");
-                            traningNumber = Console.ReadLine();
-                            if (traningNumber.ToLower() == "да" || traningNumber.ToLower() == "д" || traningNumber.ToLower() == "а")
-                            {
-                                Console.WriteLine("Правильно! Давай перейдём к следующему заданию");
-                                i++;
-                            }
-                            else
-                            {
-                                Console.Clear();
-                                Console.WriteLine("Не верно, попробуй ещё раз");
-                                Console.ReadKey();
-                            }
-                            break;
-                        case 3:
-                            Console.Clear();
-                            Console.WriteLine("Вы одни в комнате? (да / нет):");
-                            traningNumber = Console.ReadLine();
-                            if (traningNumber.ToLower() == "да" || traningNumber.ToLower() == "д" || traningNumber.ToLower() == "а")
-                            {
-                                Console.Clear();
-                                Console.WriteLine("Не верно, попробуй ещё раз");
-                                Console.ReadKey();
-                            }
-                            else
-                            {
-                                Console.WriteLine("Правильно!");
-                                i++;
-                                checkingTheEnteredNumberInTraining = 1;
-                            }
-                            break;
+                        MovingUpTheCreeper(random, nameCharacter, heals, decision, medKit, weapon, littleThings);
                     }
-                }
+                    break;
+                case "2":
+                    for(int i = 0; i < 4; i++)
+                    {
+                        Console.WriteLine($"{nameCharacter} ползёт вниз");
 
+                        MovingUpTheCreeper(random, nameCharacter, heals, decision, medKit, weapon, littleThings);
+                    }
+                    break;
             }
-
-            Console.Clear();
-
-            Console.WriteLine("Поздравляю, вы прошли всё обучение(которое есть на данный момент)");
-            Console.ReadKey();
         }
-
-        
-
-        public static void ArtefactsRoom(string nameCharacter, int heals, bool luck, int artifact, int mood, bool holeInBackpack, int NumberOfArtifacts, string decision)
+        public static void MovingUpTheCreeper(Random random, string nameCharacter, int heals, string decision, List<MedKit> medKit, List<Weapon> weapon, List <LittleThings> littleThings)
         {
-            if (heals >= 1)
+
+            int randomEvent = random.Next(0, 2);
+
+            switch(randomEvent)
             {
-                Console.Clear();
+               case 0:
+                    Console.Clear();
 
-                Console.WriteLine($"Активировав все монументы {nameCharacter} слышит грохочещий звук");
-                Console.ReadKey();
-                Console.WriteLine("За монументом по середине появляется проход");
-                Console.ReadKey();
+                    Console.WriteLine($"ничего не произолшло и {nameCharacter} ползёёт дальше");
+                    Console.ReadKey();
+                    break;
+                case 1:
+                    Console.Clear();
 
-                Console.Clear();
+                    Console.WriteLine($"{nameCharacter} нашёл рюкзак");
 
-                Console.WriteLine($"Войдя в таинственный проход {nameCharacter} видит дверь");
-                Console.ReadKey();
-                Console.WriteLine("На двери написано");
-                Console.WriteLine("Кажды вся суда входящий, должен быть чист сердцем и душой");
-                Console.ReadKey();
+                    Console.Clear();
 
-                Console.Clear();
-
-                Console.WriteLine($"{nameCharacter}  проходить в Загадочный проход\n");
-
-                Console.WriteLine("1)Шляпа Колдуна( -40 здоровья, +30 настроение, -удача ) ");
-
-                Console.WriteLine("2)Кубок Бессмертия( 150 здоровья, -20 настроения, +удача, )");
-
-                Console.WriteLine("3)Сердце Феникса( +100 здоровья, +15 настроения, +удача, ремонт рюкзака )");
-
-                Console.WriteLine("4)Плащ Теней( -10 здоровья, +15 настроения, -удача)");
-
-                Console.WriteLine("5)Слеза Королевы( +40 здоровья , 100 настроения, -удача, повреждение рюкзака )");
-
-                Console.WriteLine("6)Посох Студента( -20 здоровья, +35 настроения, +удача)");
-
-                Console.WriteLine("7)Коготь Дракона( +30 здоровья, +10 настроения, +удача, повреждение рюкзака )");
-
-                Console.WriteLine("8)Зеркало Прошлого( -15 здоровья, -10 настроения, +удача)");
-
-                Console.WriteLine("9)Сапоги Странника( +20 здоровья, +30 настроения, -удача, повреждение рюкзака");
-
-                Console.WriteLine("10)Ничего не брать( +0 здоровья, +0 настроения, удача( неизменно )");
-
-                Console.WriteLine($"\n{ nameCharacter}: Что мне взять?");
-                artifact = int.Parse(Console.ReadLine());
-
-                Console.Clear();
-
-
-
-                switch (artifact)
-                {
-                    case 1:
-                        Console.WriteLine($"{nameCharacter} берёт Шляпа Колдуна");
-                        heals -= 40;
-                        mood += 30;
-                        luck = false;
-                        holeInBackpack = false;
-
-                        Console.WriteLine($"\nХарактеристики {nameCharacter}: \nЗдоровье: {heals} \nНастроение: {mood},\nудача: {luck}");
-                        Console.ReadKey();
-                        NumberOfArtifacts += 1;
-                        break;
-                    case 2:
-                        Console.WriteLine($"{nameCharacter} берёт Кубок Бессмертия");
-                        heals = 150;
-                        mood -= 20;
-                        luck = true;
-
-                        Console.WriteLine($"\nХарактеристики {nameCharacter}: \nЗдоровье: {heals} \nНастроение: {mood},\nудача: {luck}");
-                        Console.ReadKey();
-                        NumberOfArtifacts += 1;
-                        break;
-                    case 3:
-                        Console.WriteLine($"{nameCharacter} берёт Сердце Феникса");
-                        heals += 10;
-                        mood += 25;
-                        luck = true;
-                        holeInBackpack = true;
-
-                        Console.WriteLine($"\nХарактеристики {nameCharacter}: \nЗдоровье: {heals} \nНастроение: {mood},\nудача: {luck}");
-                        Console.ReadKey();
-                        NumberOfArtifacts += 1;
-                        break;
-                    case 4:
-                        Console.WriteLine($"{nameCharacter} берёт Плащ Теней");
-                        heals -= 10;
-                        mood += 15;
-                        luck = true;
-
-                        Console.WriteLine($"\nХарактеристики {nameCharacter}: \nЗдоровье: {heals} \nНастроение: {mood},\nудача: {luck}");
-                        Console.ReadKey();
-                        NumberOfArtifacts += 1;
-                        break;
-                    case 5:
-                        Console.WriteLine($"{nameCharacter} берёт Слеза Королевы");
-                        heals -= 40;
-                        mood = 100;
-                        luck = false;
-                        holeInBackpack = true;
-
-                        Console.WriteLine($"\nХарактеристики {nameCharacter}: \nЗдоровье: {heals} \nНастроение: {mood},\nудача: {luck}");
-                        Console.ReadKey();
-                        NumberOfArtifacts += 1;
-                        break;
-                    case 6:
-                        Console.WriteLine($"{nameCharacter} берёт Посох Студента");
-                        heals -= 20;
-                        mood += 35;
-                        luck = false;
-
-                        Console.WriteLine($"\nХарактеристики {nameCharacter}: \nЗдоровье: {heals} \nНастроение: {mood},\nудача: {luck}");
-                        Console.ReadKey();
-                        NumberOfArtifacts += 1;
-                        break;
-                    case 7:
-                        Console.WriteLine($"{nameCharacter} берёт Коготь Дракона");
-                        heals += 30;
-                        mood += 10;
-                        luck = true;
-                        holeInBackpack = true;
-
-                        Console.WriteLine($"\nХарактеристики {nameCharacter}: \nЗдоровье: {heals} \nНастроение: {mood},\nудача: {luck}");
-                        Console.ReadKey();
-                        NumberOfArtifacts += 1;
-                        break;
-                    case 8:
-                        Console.WriteLine($"{nameCharacter} берёт Зеркало Прошлого");
-                        heals -= 15;
-                        mood -= 10;
-                        luck = true;
-
-                        Console.WriteLine($"\nХарактеристики {nameCharacter}: \nЗдоровье: {heals} \nНастроение: {mood},\nудача: {luck}");
-                        Console.ReadKey();
-                        NumberOfArtifacts += 1;
-                        break;
-                    case 9:
-                        Console.WriteLine($"{nameCharacter} берёт Сапоги Странника");
-                        heals += 20;
-                        mood -= 20;
-                        luck = true;
-                        holeInBackpack = true;
-
-                        Console.WriteLine($"\nХарактеристики {nameCharacter}: \nЗдоровье: {heals} \nНастроение: {mood},\nудача: {luck}");
-                        Console.ReadKey();
-                        NumberOfArtifacts += 1;
-                        break;
-                    case 10:
-                        Console.WriteLine($"{nameCharacter} решает ничего не брать");
-
-                        Console.WriteLine($"\nХарактеристики {nameCharacter}: \nЗдоровье: {heals} \nНастроение: {mood},\nудача: {luck}");
-                        Console.ReadKey();
-                        break;
-                    default:
-                        Console.WriteLine("Вы ввели недоступное число");
-                        break;
-                }
-
-                if (NumberOfArtifacts >= 1)
-                {
-                    Console.WriteLine(nameCharacter + " хочет забрать всё. \nЗабрать всё? (да / нет)");
-                    decision = Convert.ToString(Console.ReadLine());
-
-                    if (decision.ToLower() == "да" || decision.ToLower() == "д" || decision.ToLower() == "а")
-                    {
-                        Console.Clear();
-
-                        Console.WriteLine($"{nameCharacter} берёт все сокровища из сокровещницы, но выйдя из грабницы {nameCharacter} чуствует боль в груди, падает на землю и хватается за грудь");
-                        Console.ReadKey();
-                        Console.WriteLine("\nСпустя несколь лет, новые искатели находят тело неизвесного человека");
-                        Console.ReadKey();
-                    }
-                }
+                    BackpackRandomItems.backPackRandomItem(medKit, littleThings, nameCharacter, random, decision);
+            break;
+                case 2:
+                    Console.Clear();
+                    Console.WriteLine($"{nameCharacter} укололся шипом от лианы \n -5 здоровья");
+                    heals -= 5;
+                    break;
             }
         }
 
+        public static void spiderGame(string nameCharacter)
+        {
 
+        }
     }
 }
 
