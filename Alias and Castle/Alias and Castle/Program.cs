@@ -1,4 +1,5 @@
 ﻿using Alias_and_Castle.Levels;
+using Alias_and_Castle.Levels.Lake;
 using Alias_and_Castle.Levels.Towers;
 using System;
 using System.Collections;
@@ -16,20 +17,53 @@ namespace Alias_and_Castle
         static void Main(string[] args)
         {
             Console.Title = "Alias and Castle";
-            string nameCharacter = "Alias";
 
             int lockWhitLengthKey = 5;
             bool lockFire = false;
             bool rockLock = false;
             int timer = 0;
 
+            //Вызов классов 
+            List<Class> classes = new List<Class>
+            {
+                new Class{ Index = 0, Name ="Человек", Heals = 100, Damage = 8},
+                new Class{ Index = 1, Name ="Эльф", Heals = 100, Damage = 7},
+                new Class{ Index = 2, Name ="Гоблин", Heals = 80, Damage = 5},
+                new Class{ Index = 3, Name ="Зверолюд", Heals = 110, Damage = 10},
+                new Class{ Index = 4, Name ="Вампир", Heals = 110, Damage = 10},
+            };
 
+            List<Weapon> weapons = new List<Weapon>
+            {
+                new Weapon { Index = 1, Name = "Палка", Damage = 8, CreatRate = 5, CreatDamage = 11,},
+                new Weapon { Index = 2, Name = "Тупой меч", Damage = 15, CreatRate = 20, CreatDamage = 25,},
+                new Weapon { Index = 3, Name = "Меч", Damage = 30, CreatRate = 20, CreatDamage = 40,},
+                new Weapon { Index = 4, Name = "Кинжал", Damage = 16, CreatRate = 20, CreatDamage = 30 },
+            };
+
+            List<MedKit> medKits = new List<MedKit>
+            {
+                new MedKit { Index = 1, Size = "Маленькая аптечка", Quantity = 1, Heals = 5, Price = 2},
+                new MedKit { Index = 2, Size = "Средняя аптечка", Quantity = 1, Heals = 10, Price = 4},
+                new MedKit { Index = 3, Size = "Большая аптечка", Quantity = 1, Heals = 20, Price = 5},
+            };
+
+            List<LittleThings> littleThings  = new List<LittleThings>
+            {
+                new LittleThings { Index = 1, Name = "Монет", Quantity = 0},
+            };
+
+            List<PlayerInventory> playerInventories = new List<PlayerInventory>
+            {
+
+            };
 
             int mood = 70;
             bool luck = true;
             bool holeInBackpack = false;
 
             // Дефолтное состояние персонажа
+            string nameCharacter = "Alias";
             string race = "человек";
             int heals = 100;
             int maxHeals = 100;
@@ -44,9 +78,9 @@ namespace Alias_and_Castle
 
             int littleHealsInInventory = 2;
 
-            int towerTimerOne = 0;
-            int towerTimerTwo = 0;
-            int towerTimerThree = 0;
+            int towerTimerOne = 1;
+            int towerTimerTwo = 1;
+            int towerTimerThree = 1;
 
             int artifact = 0;
             int items = 0;
@@ -60,7 +94,10 @@ namespace Alias_and_Castle
             string decision = "";
 
             Random random = new Random();
-            //TootorialBeforGame.Totorial();
+
+            Console.ForegroundColor = ConsoleColor.White;
+
+            TootorialBeforGame.Totorial();
 
             Console.Clear();
 
@@ -71,26 +108,17 @@ namespace Alias_and_Castle
             Console.ReadKey();
 
 
-            List<Class> classes = new List<Class>
-            {
-                new Class{ Index = 0, Name ="Человек", Heals = 100, Damage = 8},
-                new Class{ Index = 1, Name ="Эльф", Heals = 100, Damage = 7},
-                new Class{ Index = 2, Name ="Гоблин", Heals = 80, Damage = 5},
-                new Class{ Index = 3, Name ="Зверолюд", Heals = 110, Damage = 10},
-                new Class{ Index = 4, Name ="Вампир", Heals = 110, Damage = 10},
-            };
-
-
             ClassForACharacter.ClassForCharacter(classes, ref race, ref heals, ref damageArm, ref damage, ref maxHeals, ref nameCharacter, ref weapon);
 
             Console.Clear();
 
-            Console.ForegroundColor = ConsoleColor.Green;
 
             Console.Write("Введите имя своего персонажа: ");
             nameCharacter = Console.ReadLine();
 
             Console.Clear();
+
+            Console.ForegroundColor = ConsoleColor.Green;
 
             Console.WriteLine($"=== Предыстория ===\n {nameCharacter}, молодой(ая) иследователь, слышал легенды о замке Эльдора, где храниться Кристал Вечной Мудрости. " +
                 "После месяцев поисков он нашёл скрытый вход в горной пещере");
@@ -136,14 +164,20 @@ namespace Alias_and_Castle
                 Console.WriteLine("\nТолько лишь достойный сможет активировать три ионумента и открыть проход ведущую в грабницу с сокровещами");
                 Console.ReadKey();
 
-                ChangeTowers.MainChange(towerTimerOne, towerTimerTwo, towerTimerThree, NumberOfArtifacts, decision, damage, weapon, heals, timer, items, stick, sword, luck, nameCharacter, mood, littleHealsInInventory, damageArm, littleHealsPosion, holeInBackpack, artifact, ref maxHeals);
+                ChangeTowers.MainChange(weapons,towerTimerOne, towerTimerTwo, towerTimerThree, NumberOfArtifacts, decision, damage, weapon, heals, timer, items, stick, sword, luck, nameCharacter, mood, littleHealsInInventory, damageArm, littleHealsPosion, holeInBackpack, artifact, ref maxHeals);
 
                 if(NumberOfArtifacts == 1)
                 {
+                    Console.Clear();
 
+                    FallingToTheVeryBottom.Liana(nameCharacter, decision, random, heals, damage, medKits, weapons, littleThings, playerInventories, weapon);
+
+                    LakeWhithCoins.lakeAndShop(nameCharacter, medKits, weapons,
+                        littleThings, playerInventories, damage, heals, weapon, decision, random);
                 }
 
                 Console.Clear();
+
             }
             else
             {
@@ -157,66 +191,6 @@ namespace Alias_and_Castle
 
             Console.WriteLine("Конец игры!");
             Console.ReadKey();
-        }
-        public static void LakeWithCoins(string nameCharacter, string decision, Random random, int heals, List<MedKit> medKit, List<Weapon> weapon, List<LittleThings> littleThings)
-        {
-            Console.Clear();
-
-
-            Console.WriteLine($"Возвращаясь к выходу {nameCharacter} насступает на камень и пол проваливается");
-            Console.ReadKey();
-            Console.WriteLine($"{nameCharacter} успел схватиться за лиану");
-            Console.WriteLine($"{nameCharacter}: куда полсти? \n1)Вверх \n2)Вниз");
-            decision = Console.ReadLine();
-
-            switch(decision)
-            {
-                case "1":
-                    for(int i = 0; i < 4; i++)
-                    {
-                        Console.WriteLine($"{nameCharacter} ползёт вверх");
-
-                        MovingUpTheCreeper(random, nameCharacter, heals, decision, medKit, weapon, littleThings);
-                    }
-                    break;
-                case "2":
-                    for(int i = 0; i < 4; i++)
-                    {
-                        Console.WriteLine($"{nameCharacter} ползёт вниз");
-
-                        MovingUpTheCreeper(random, nameCharacter, heals, decision, medKit, weapon, littleThings);
-                    }
-                    break;
-            }
-        }
-        public static void MovingUpTheCreeper(Random random, string nameCharacter, int heals, string decision, List<MedKit> medKit, List<Weapon> weapon, List <LittleThings> littleThings)
-        {
-
-            int randomEvent = random.Next(0, 2);
-
-            switch(randomEvent)
-            {
-               case 0:
-                    Console.Clear();
-
-                    Console.WriteLine($"ничего не произолшло и {nameCharacter} ползёёт дальше");
-                    Console.ReadKey();
-                    break;
-                case 1:
-                    Console.Clear();
-
-                    Console.WriteLine($"{nameCharacter} нашёл рюкзак");
-
-                    Console.Clear();
-
-                    BackpackRandomItems.backPackRandomItem(medKit, littleThings, nameCharacter, random, decision);
-            break;
-                case 2:
-                    Console.Clear();
-                    Console.WriteLine($"{nameCharacter} укололся шипом от лианы \n -5 здоровья");
-                    heals -= 5;
-                    break;
-            }
         }
 
         public static void spiderGame(string nameCharacter)

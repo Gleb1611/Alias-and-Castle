@@ -10,7 +10,7 @@ namespace Alias_and_Castle.Levels.Towers
 {
     internal class ChangeTowers
     {
-        public static void MainChange(int towerTimerOne, int towerTimerTwo, int towerTimerThree, int NumberOfArtifacts, 
+        public static void MainChange(List<Weapon> weapons,int towerTimerOne, int towerTimerTwo, int towerTimerThree, int NumberOfArtifacts, 
             string decision, int damage, string weapon, int heals, int timer, int items, string stick, string sword, bool luck, string nameCharacter, int mood, 
             int littleHealsInInventory, int damageArm, int littleHealsPosion, bool holeInBackpack, int artifact, ref int maxHeals)
         {
@@ -67,7 +67,7 @@ namespace Alias_and_Castle.Levels.Towers
                                     Console.Clear();
 
                                     towerTimerOne = 1;
-                                    FirstTower.TowerOne(decision, ref mood, nameCharacter, ref luck, ref damage, ref weapon, ref heals, ref timer, ref items, ref stick, ref sword);
+                                    FirstTower.TowerOne(weapons,decision, ref mood, nameCharacter, ref luck, ref damage, ref weapon, ref heals, ref timer, ref items, ref stick, ref sword);
                                     break;
 
                                 default:

@@ -8,7 +8,7 @@ namespace Alias_and_Castle.Levels.Towers
 {
     internal class FirstTower
     {
-        public static void TowerOne(string decision, ref int mood, string nameCharacter, ref bool luck, ref int damage, ref string weapon, ref int heals, ref int timer,ref int items, ref string stick, ref string sword)
+        public static void TowerOne(List<Weapon> weapons,string decision, ref int mood, string nameCharacter, ref bool luck, ref int damage, ref string weapon, ref int heals, ref int timer,ref int items, ref string stick, ref string sword)
         {
 
             
@@ -95,8 +95,8 @@ namespace Alias_and_Castle.Levels.Towers
                                 {
                                     case 1:
                                         Console.WriteLine($"{nameCharacter} взял(а) палку");
-                                        damage = 8;
-                                        weapon = stick;
+                                        damage = weapons[0].Damage;
+                                        weapon = weapons[0].Name;
                                         luck = true;
                                         Console.WriteLine($"Урон = {damage}");
                                         Console.ReadKey();
@@ -105,8 +105,8 @@ namespace Alias_and_Castle.Levels.Towers
 
                                     case 2:
                                         Console.WriteLine($"{nameCharacter} взял(а) меч");
-                                        damage = 20;
-                                        weapon = sword;
+                                        damage = weapons[1].Damage;
+                                        weapon = weapons[1].Name;
                                         luck = false;
                                         Console.WriteLine($"Урон = {damage}");
                                         Console.ReadKey();
@@ -134,8 +134,8 @@ namespace Alias_and_Castle.Levels.Towers
                             {
                                 case 1:
                                     Console.WriteLine($"{nameCharacter} взял(а) палку");
-                                    damage = 8;
-                                    weapon = stick;
+                                    damage = weapons[0].Damage;
+                                    weapon = weapons[0].Name;
                                     luck = true;
                                     Console.WriteLine($"Урон = {damage}");
                                     Console.ReadKey();
@@ -144,8 +144,8 @@ namespace Alias_and_Castle.Levels.Towers
 
                                 case 2:
                                     Console.WriteLine($"{nameCharacter} взял(а) меч");
-                                    damage = 20;
-                                    weapon = sword;
+                                    damage = weapons[1].Damage;
+                                    weapon = weapons[1].Name;
                                     luck = false;
                                     Console.WriteLine($"Урон = {damage}");
                                     Console.ReadKey();
@@ -172,7 +172,7 @@ namespace Alias_and_Castle.Levels.Towers
                         Console.WriteLine($"Осмотрев кус, {nameCharacter} подмечает, что это крапива");
                         Console.ReadKey();
                         Console.WriteLine("На дне крапивы лежит ключ\n");
-                        Console.WriteLine($"Взять ключ?({0} получит ожог руки)\n (да / нет)");
+                        Console.WriteLine($"Взять ключ?(получит ожог руки)\n (да / нет)");
                         decision = Convert.ToString(Console.ReadLine());
 
                         if (decision.ToLower() == "да" || decision.ToLower() == "д" || decision.ToLower() == "а")
@@ -198,8 +198,8 @@ namespace Alias_and_Castle.Levels.Towers
                             {
                                 case 1:
                                     Console.WriteLine($"{nameCharacter} взял(а) палку");
-                                    damage = 8;
-                                    weapon = stick;
+                                    damage = weapons[0].Damage;
+                                    weapon = weapons[0].Name;
                                     luck = true;
                                     Console.WriteLine($"Урон = {damage}");
                                     Console.ReadKey();
@@ -208,8 +208,8 @@ namespace Alias_and_Castle.Levels.Towers
 
                                 case 2:
                                     Console.WriteLine($"{nameCharacter} взял(а) меч");
-                                    damage = 20;
-                                    weapon = sword;
+                                    damage = weapons[1].Damage;
+                                    weapon = weapons[1].Name;
                                     luck = false;
                                     Console.WriteLine($"Урон = {damage}");
                                     Console.ReadKey();
@@ -239,8 +239,8 @@ namespace Alias_and_Castle.Levels.Towers
                         {
                             case 1:
                                 Console.WriteLine($"{nameCharacter} взял(а) палку");
-                                damage = 8;
-                                weapon = stick;
+                                damage = weapons[0].Damage;
+                                weapon = weapons[0].Name;
                                 luck = true;
                                 Console.WriteLine($"Урон = {damage}");
                                 Console.ReadKey();
@@ -249,8 +249,8 @@ namespace Alias_and_Castle.Levels.Towers
 
                             case 2:
                                 Console.WriteLine($"{nameCharacter} взял(а) меч");
-                                damage = 20;
-                                weapon = sword;
+                                damage = weapons[1].Damage;
+                                weapon = weapons[1].Name;
                                 luck = false;
                                 Console.WriteLine($"Урон = {damage}");
                                 Console.ReadKey();
@@ -305,8 +305,8 @@ namespace Alias_and_Castle.Levels.Towers
                         {
                             case 1:
                                 Console.WriteLine($"{nameCharacter} взял(а) палку");
-                                damage = 8;
-                                weapon = stick;
+                                damage = weapons[0].Damage;
+                                weapon = weapons[0].Name;
                                 luck = true;
                                 Console.WriteLine($"Урон = {damage}");
                                 Console.ReadKey();
@@ -315,8 +315,8 @@ namespace Alias_and_Castle.Levels.Towers
 
                             case 2:
                                 Console.WriteLine($"{nameCharacter} взял(а) меч");
-                                damage = 20;
-                                weapon = sword;
+                                damage = weapons[1].Damage;
+                                weapon = weapons[1].Name;
                                 luck = false;
                                 Console.WriteLine($"Урон = {damage}");
                                 Console.ReadKey();
@@ -362,8 +362,8 @@ namespace Alias_and_Castle.Levels.Towers
                         {
                             case 1:
                                 Console.WriteLine($"{nameCharacter} взял(а) палку");
-                                damage = 8;
-                                weapon = stick;
+                                damage = weapons[0].Damage;
+                                weapon = weapons[0].Name;
                                 luck = true;
                                 Console.WriteLine($"Урон = {damage}");
                                 Console.ReadKey();
@@ -372,8 +372,8 @@ namespace Alias_and_Castle.Levels.Towers
 
                             case 2:
                                 Console.WriteLine($"{nameCharacter} взял(а) меч");
-                                damage = 20;
-                                weapon = sword;
+                                damage = weapons[1].Damage;
+                                weapon = weapons[1].Name;
                                 luck = false;
                                 Console.WriteLine($"Урон = {damage}");
                                 Console.ReadKey();
@@ -382,7 +382,7 @@ namespace Alias_and_Castle.Levels.Towers
                         }
                         Console.WriteLine($"{nameCharacter} решает использовать {weapon}, чтобы убрать крапиву и достать ключ");
                         Console.ReadKey();
-                        Console.WriteLine($"{nameCharacter} использовал(f) ключ, чтобы активировать монумент");
+                        Console.WriteLine($"{nameCharacter} использовал(а) ключ, чтобы активировать монумент");
                         Console.ReadKey();
                         Console.Clear();
                     }

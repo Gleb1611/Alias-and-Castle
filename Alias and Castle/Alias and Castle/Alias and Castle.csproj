@@ -8,4 +8,8 @@
     <Nullable>enable</Nullable>
   </PropertyGroup>
 
+  <ItemGroup>
+    <None Remove="Levels\Lake\LakeCoins.cs~RF51af8f.TMP" />
+  </ItemGroup>
+
 </Project>
