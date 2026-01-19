@@ -1,6 +1,9 @@
 ﻿using Alias_and_Castle.Levels;
-using Alias_and_Castle.Levels.Lake;
+using Alias_and_Castle.Levels.cave.Lake;
+using Alias_and_Castle.Levels.cave.Lake.Lake_Area;
+using Alias_and_Castle.Levels.cave.Lake.Lake_Area;
 using Alias_and_Castle.Levels.Towers;
+using Alias_and_Castle.Levels.cave.Lake.Lake_Area;
 using System;
 using System.Collections;
 using System.Collections.Generic;
@@ -9,6 +12,7 @@ using System.Security.Claims;
 using System.Text;
 using System.Threading.Tasks;
 using static System.Net.Mime.MediaTypeNames;
+using Alias_and_Castle.Levels.Exit;
 
 namespace Alias_and_Castle
 {
@@ -51,6 +55,7 @@ namespace Alias_and_Castle
             List<LittleThings> littleThings  = new List<LittleThings>
             {
                 new LittleThings { Index = 1, Name = "Монет", Quantity = 0},
+                new LittleThings { Index = 2, Name = "Кристал телепортации", Quantity = 0},
             };
 
             List<PlayerInventory> playerInventories = new List<PlayerInventory>
@@ -58,7 +63,18 @@ namespace Alias_and_Castle
 
             };
 
-            int mood = 70;
+            List<Catalog> catalog = new List<Catalog>
+            {
+                new Catalog { Index = 0, Name = "Маленькая аптечка", Prise = 10, Quantity = 15},
+                new Catalog { Index = 1, Name = "Средняя аптечка", Prise = 20, Quantity = 10},
+                new Catalog { Index = 2, Name = "Большая аптечка", Prise = 35, Quantity = 5},
+                new Catalog { Index = 3, Name = "Стальной шлем", Prise = 100, Quantity = 1},
+                new Catalog { Index = 4, Name = "Меч", Prise = 350, Quantity = 1},
+                new Catalog { Index = 5, Name = "Кристал телепортации", Prise = 10000, Quantity = 1},
+            };
+
+
+        int mood = 70;
             bool luck = true;
             bool holeInBackpack = false;
 
@@ -67,6 +83,7 @@ namespace Alias_and_Castle
             string race = "человек";
             int heals = 100;
             int maxHeals = 100;
+            int coin = 0;
             string weapon = "рука";
             int damageArm = 5;
             int damage = 5;
@@ -97,7 +114,11 @@ namespace Alias_and_Castle
 
             Console.ForegroundColor = ConsoleColor.White;
 
+            
+
             TootorialBeforGame.Totorial();
+
+
 
             Console.Clear();
 
@@ -172,12 +193,93 @@ namespace Alias_and_Castle
 
                     FallingToTheVeryBottom.Liana(nameCharacter, decision, random, heals, damage, medKits, weapons, littleThings, playerInventories, weapon);
 
-                    LakeWhithCoins.lakeAndShop(nameCharacter, medKits, weapons,
-                        littleThings, playerInventories, damage, heals, weapon, decision, random);
+                    LakeWhithCoins.lakeAndShop( nameCharacter, medKits, weapons,
+                    littleThings, playerInventories, catalog, damage, heals, weapon);
                 }
 
                 Console.Clear();
 
+
+                Area.All( nameCharacter, medKits, weapons,
+                littleThings, playerInventories, catalog, damage, heals, weapon, decision, random);
+
+                Console.Clear();
+
+                Console.WriteLine($"{nameCharacter} попал(а) в неизвестную пещеру, где был загадоочный рисунок");
+                Console.WriteLine("Посмотреть рисунок? (да/нет)");
+                decision = Console.ReadLine();
+
+                int capture = random.Next(3, 19);
+
+                Console.Clear();
+
+                switch (decision.ToLower())
+                {
+                    case "да":
+                        Console.Clear();
+
+                        Console.ForegroundColor = ConsoleColor.White;
+
+                        for (int i = 1; i < capture; i++)
+                        {
+                            Console.Write($"{i} ");
+                            for (int j = 0; j < i; j++)
+                            {
+                                Console.Write("*");
+                            }
+                            Console.WriteLine("");
+                        }
+                        break;
+
+                    case "нет":
+                        Console.Clear();
+                        Console.ForegroundColor = ConsoleColor.Green;
+
+                        Console.WriteLine($"{nameCharacter}: Красивый рисунок, но мне надо идти дальше");
+                        break;
+                }
+
+                Console.Clear();
+                Console.WriteLine($"Пройдя дальше {nameCharacter} увидел(а) дверь, на ней есть рисунок");
+                Console.ReadKey();
+
+                Console.WriteLine($"{nameCharacter}, подмечает, что этот рисунок похож на тот, который {nameCharacter} видел(а) на стене ранее");
+                Console.Clear();
+
+                Console.WriteLine($"{nameCharacter} вернулся(лась) обратно к рисунку");
+                Console.ReadKey();
+
+                Console.Clear();
+
+
+                for (int i = 1; i < capture; i++)
+                {
+                    Console.Write($"{i} ");
+                    for (int j = 0; j < i; j++)
+                    {
+                        Console.Write("*");
+                    }
+                    Console.WriteLine("");
+                }
+
+                Console.ReadKey();
+
+                bool finalDoors = true;
+
+                while (finalDoors)
+                {
+                    FirstFinalDoor.FirstDoor(nameCharacter, decision, capture);
+
+                    SecondFinalDoor.SecondDoor(nameCharacter, decision);
+
+                    LasFinalDoor.LastDoor(nameCharacter, decision, finalDoors);
+
+                }
+
+                Console.Clear();
+
+                Console.WriteLine($"Ну всё,{nameCharacter} выбрался(лась) из замка");
+                Console.ReadKey();
             }
             else
             {
@@ -197,6 +299,8 @@ namespace Alias_and_Castle
         {
 
         }
+
+
+
     }
 }
-

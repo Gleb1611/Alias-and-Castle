@@ -84,7 +84,7 @@ namespace Alias_and_Castle
                                 Console.ReadKey();
 
 
-                                Inventory.FightInventory(ref medKit, ref items, ref nameCharacter,
+                                InventoryFight.FightInventory(ref medKit, ref items, ref nameCharacter,
                                     ref changeMoveInFight, ref heals, ref littleHealsInInventory,
                                     ref maxHeals, ref littleHealsPosion);
 

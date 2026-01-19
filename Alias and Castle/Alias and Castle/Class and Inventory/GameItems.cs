@@ -39,6 +39,16 @@ namespace Alias_and_Castle
         {
 
         };
+
+        public static List<Catalog> catalog = new List<Catalog>
+        {
+            new Catalog { Index = 0, Name = "Маленькая аптечка", Prise = 10, Quantity = 15},
+            new Catalog { Index = 1, Name = "Средняя аптечка", Prise = 20, Quantity = 10},
+            new Catalog { Index = 2, Name = "Большая аптечка", Prise = 35, Quantity = 5},
+            new Catalog { Index = 3, Name = "Стальной шлем", Prise = 100, Quantity = 1},
+            new Catalog { Index = 4, Name = "Меч", Prise = 350, Quantity = 1},
+            new Catalog { Index = 5, Name = "Кристал телепортации", Prise = 10000, Quantity = 1},
+        };
     }
 
     class MedKit
@@ -84,5 +94,14 @@ namespace Alias_and_Castle
         public string Size { get; set; }
         public int Heals { get; set; }
         public int Price { get; set; }
+    }
+
+    class Catalog
+    {
+        public int Index { get; set; }
+        public string Name { get; set; }
+        public string Size { get; set; }
+        public int Prise { get; set; }
+        public int Quantity { get; set; }
     }
 }

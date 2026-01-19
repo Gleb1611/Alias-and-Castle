@@ -9,7 +9,8 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <None Remove="Levels\Lake\LakeCoins.cs~RF51af8f.TMP" />
+    <None Remove="Levels\cave\Lake\LakeCoins.cs~RF51af8f.TMP" />
+    <None Remove="Levels\cave\Lake\Lake_Area\Inventory_Area.cs~RF2be57a4f.TMP" />
   </ItemGroup>
 
 </Project>

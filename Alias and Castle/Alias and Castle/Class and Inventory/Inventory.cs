@@ -4,7 +4,7 @@ using System.Linq;
 
 namespace Alias_and_Castle
 {
-    internal class Inventory
+    internal class InventoryFight
     {
         public static void FightInventory(ref List<MedKit> medKits, ref int items, ref string nameCharacter,
             ref int changeMoveInFight, ref int heals, ref int littleHealsPosion, ref int maxHeals, ref int littleHealsInInventory)
